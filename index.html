@@ -1,0 +1,35 @@
+<html>
+<style>
+table {
+    border-collapse: collapse;
+}
+
+table, td, th {
+    border: 1px solid black;
+}
+</style>
+<script src="api-interaction.js"></script>
+<h1>Twitter Influencer Dashboard</h1>
+<p>REALLY early beta for influencer dashboard. See some times and tweets from two users you put in the inputs below.</p>
+<form>
+<input id="username1" type="text"></input>
+<input id="username2" type="text"></input>
+<input id="submitbtn" type="text" value="submit"></input>
+</form>
+<div id="res_area"></div>
+
+<script>
+function result_append_table(data){
+  var html="<table><thead><tr><th>Time</th><th>Text</th></tr></thead><tbody>";
+  data.forEach((x) => html += `<tr><td>${x.time}</td><td>${x.text}</td></tr>`);
+  html += "</tbody></table>";
+  document.getElementById("res_area").innerHtml += html;
+}
+function get_users(){
+  document.getElementById("res_area").innerHtml = "";
+  user_info(document.getElementById("username1").value, result_append_table);
+  user_info(document.getElementById("username2").value, result_append_table);
+}
+document.getElementById("submitbtn").onClick = get_users;
+</script>
+</html>
