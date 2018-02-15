@@ -12,8 +12,10 @@ table, td, th {
 <h1>Twitter Influencer Dashboard</h1>
 <p>REALLY early beta for influencer dashboard. See some times and tweets from two users you put in the inputs below.</p>
 <form>
-<input id="username1" type="text"></input>
-<input id="username2" type="text"></input>
+Username 1: <input id="username1" type="text"></input><br/>
+Username 2: <input id="username2" type="text"></input><br/>
+Token: <input id="token" type="text"></input><br/>
+Token Secret: <input id="tokenSec" type="text"></input><br/>
 <input id="submitbtn" type="text" value="submit"></input>
 </form>
 <div id="res_area"></div>
@@ -27,8 +29,10 @@ function result_append_table(data){
 }
 function get_users(){
   document.getElementById("res_area").innerHtml = "";
-  user_info(document.getElementById("username1").value, result_append_table);
-  user_info(document.getElementById("username2").value, result_append_table);
+  var token = document.getElementById("token").value;
+  var tok_sec = document.getElementById("tokenSec").value,
+  user_info(document.getElementById("username1").value, token, tok_sec result_append_table);
+  user_info(document.getElementById("username2").value, token, tok_sec, result_append_table);
 }
 document.getElementById("submitbtn").onClick = get_users;
 </script>
