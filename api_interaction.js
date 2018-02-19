@@ -1,6 +1,6 @@
 // https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline.html
 // need auth
-function user_info(username, token, token_secret cb){
+function user_info(username, token, cb){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -11,6 +11,7 @@ function user_info(username, token, token_secret cb){
         }
     };
     xhttp.open("GET", "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + username, true);
-    // TODO add token and token secret to header
+    // TODO add method for oauth?
+    xhttp.setRequestHeader("Authorization", "Bearer " + token);
     xhttp.send();
 }
