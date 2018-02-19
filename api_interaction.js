@@ -11,7 +11,7 @@ function user_info(username, token, cb){
         }
     };
     xhttp.open("GET", "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + username, true);
-    // TODO add method for oauth?
+    // TODO add method for oauth? (user tokens instead of app ones)
     xhttp.setRequestHeader("Authorization", "Bearer " + token);
     xhttp.send();
 }
