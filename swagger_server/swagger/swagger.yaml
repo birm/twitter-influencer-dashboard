@@ -1,0 +1,191 @@
+---
+swagger: "2.0"
+info:
+  version: "v1"
+  title: "Twitter Influencer Dashboard"
+consumes:
+- "application/json"
+paths:
+  /user/overview/{handle}:
+    get:
+      summary: "Get basic information about a user"
+      operationId: "useroverview"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "handle"
+        in: "path"
+        description: "Handle of user to get."
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          examples:
+            application/json: ""
+      x-swagger-router-controller: "swagger_server.controllers.default_controller"
+  /user/hashtags/{handle}:
+    get:
+      summary: "Get most common recent hashtags used by a user"
+      operationId: "usertags"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "handle"
+        in: "path"
+        description: "Handle of user to get."
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          examples:
+            application/json: ""
+      x-swagger-router-controller: "swagger_server.controllers.default_controller"
+  /user/mentions/{handle}:
+    get:
+      summary: "Get users which a user has mentioned"
+      operationId: "usermentions"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "handle"
+        in: "path"
+        description: "Handle of user to get."
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          examples:
+            application/json: ""
+      x-swagger-router-controller: "swagger_server.controllers.default_controller"
+  /user/topics/{handle}:
+    get:
+      summary: "Gets topics a user uses, grouped using word2vec"
+      operationId: "usertopics"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "handle"
+        in: "path"
+        description: "Handle of user to get."
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          examples:
+            application/json: ""
+      x-swagger-router-controller: "swagger_server.controllers.default_controller"
+  /user/time/{handle}:
+    get:
+      summary: "Gets a picture of when a user tweets"
+      operationId: "usertimes"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "handle"
+        in: "path"
+        description: "Handle of user to get."
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          examples:
+            application/json: ""
+      x-swagger-router-controller: "swagger_server.controllers.default_controller"
+  /influence/deltat/{handle}/{influencer}:
+    get:
+      summary: "determines how close users tweet to each other"
+      operationId: "influencetime"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "handle"
+        in: "path"
+        description: "Handle of user to get."
+        required: true
+        type: "string"
+      - name: "influencer"
+        in: "path"
+        description: "Handle of user to examine influence from."
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          examples:
+            application/json: ""
+      x-swagger-router-controller: "swagger_server.controllers.default_controller"
+  /influence/topics/{handle}/{influencer}:
+    get:
+      summary: "Determine topic similarity between users"
+      operationId: "influencetopic"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "handle"
+        in: "path"
+        description: "Handle of user to get."
+        required: true
+        type: "string"
+      - name: "influencer"
+        in: "path"
+        description: "Handle of user to examine influence from."
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          examples:
+            application/json: ""
+      x-swagger-router-controller: "swagger_server.controllers.default_controller"
+  /influence/hashtags/{handle}/{influencer}:
+    get:
+      summary: "Determine hashtag similarity between users"
+      operationId: "influencetags"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "handle"
+        in: "path"
+        description: "Handle of user to get."
+        required: true
+        type: "string"
+      - name: "influencer"
+        in: "path"
+        description: "Handle of user to examine influence from."
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          examples:
+            application/json: ""
+      x-swagger-router-controller: "swagger_server.controllers.default_controller"
+  /influence/mention/{handle}/{influencer}:
+    get:
+      summary: "Determine mention similarity between users"
+      operationId: "influencetags"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "handle"
+        in: "path"
+        description: "Handle of user to get."
+        required: true
+        type: "string"
+      - name: "influencer"
+        in: "path"
+        description: "Handle of user to examine influence from."
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          examples:
+            application/json: ""
+      x-swagger-router-controller: "swagger_server.controllers.default_controller"
+definitions: {}

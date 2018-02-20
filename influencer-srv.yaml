@@ -1,0 +1,180 @@
+swagger: '2.0'
+info:
+  title: Twitter Influencer Dashboard
+  version: v1
+paths:
+  '/user/overview/{handle}':
+    get:
+      operationId: useroverview
+      summary: Get basic information about a user
+      parameters:
+        - in: path
+          name: handle
+          type: string
+          required: true
+          description: Handle of user to get.
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 200 response
+          examples:
+            application/json: ''
+  '/user/hashtags/{handle}':
+    get:
+      operationId: usertags
+      summary: Get most common recent hashtags used by a user
+      parameters:
+        - in: path
+          name: handle
+          type: string
+          required: true
+          description: Handle of user to get.
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 200 response
+          examples:
+            application/json: ''
+  '/user/mentions/{handle}':
+    get:
+      operationId: usermentions
+      summary: Get users which a user has mentioned
+      parameters:
+        - in: path
+          name: handle
+          type: string
+          required: true
+          description: Handle of user to get.
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 200 response
+          examples:
+            application/json: ''
+  '/user/topics/{handle}':
+    get:
+      operationId: usertopics
+      summary: 'Gets topics a user uses, grouped using word2vec'
+      parameters:
+        - in: path
+          name: handle
+          type: string
+          required: true
+          description: Handle of user to get.
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 200 response
+          examples:
+            application/json: ''
+  '/user/time/{handle}':
+    get:
+      operationId: usertimes
+      summary: Gets a picture of when a user tweets
+      parameters:
+        - in: path
+          name: handle
+          type: string
+          required: true
+          description: Handle of user to get.
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 200 response
+          examples:
+            application/json: ''
+  '/influence/deltat/{handle}/{influencer}':
+    get:
+      operationId: influencetime
+      summary: determines how close users tweet to each other
+      parameters:
+        - in: path
+          name: handle
+          type: string
+          required: true
+          description: Handle of user to get.
+        - in: path
+          name: influencer
+          type: string
+          required: true
+          description: Handle of user to examine influence from.
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 200 response
+          examples:
+            application/json: ''
+  '/influence/topics/{handle}/{influencer}':
+    get:
+      operationId: influencetopic
+      summary: Determine topic similarity between users
+      parameters:
+        - in: path
+          name: handle
+          type: string
+          required: true
+          description: Handle of user to get.
+        - in: path
+          name: influencer
+          type: string
+          required: true
+          description: Handle of user to examine influence from.
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 200 response
+          examples:
+            application/json: ''
+  '/influence/hashtags/{handle}/{influencer}':
+    get:
+      operationId: influencetags
+      summary: Determine hashtag similarity between users
+      parameters:
+        - in: path
+          name: handle
+          type: string
+          required: true
+          description: Handle of user to get.
+        - in: path
+          name: influencer
+          type: string
+          required: true
+          description: Handle of user to examine influence from.
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 200 response
+          examples:
+            application/json: ''
+  '/influence/mention/{handle}/{influencer}':
+    get:
+      operationId: influencetags
+      summary: Determine mention similarity between users
+      parameters:
+        - in: path
+          name: handle
+          type: string
+          required: true
+          description: Handle of user to get.
+        - in: path
+          name: influencer
+          type: string
+          required: true
+          description: Handle of user to examine influence from.
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 200 response
+          examples:
+            application/json: ''
+consumes:
+  - application/json
