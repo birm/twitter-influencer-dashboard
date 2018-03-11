@@ -14,6 +14,11 @@ fn = 'config.json.example'
 if os.path.isfile('config.json'):
     fn = 'config.json'
 
+with open(fn) as json_data_file:
+    config = json.load(json_data_file)
+
+tweet_limit = config["tweet_limit"]
+
 tw_api = TwitterAPI.TwitterAPI(config["consumer_key"], config["consumer_secret"], config["access_token_key"], config["access_token_secret"])
 
 def statuses(username):
