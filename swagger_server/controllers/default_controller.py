@@ -74,7 +74,7 @@ def influencetopic(handle, influencer):
     r2.extract_keywords_from_text(" ".join(s2))
     r2.get_ranked_phrases()
     #TODO list comparison
-    return 'do some magic!'
+    return '["use the individual one for now"]'
 
 
 def usermentions(handle):
